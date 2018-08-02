@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use Symfony\Component\Routing\Route;
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,4 +39,10 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     Route::get('shipments', 'ShipmentController@index');
     Route::get('tracks', 'TrackController@index');
+
+    Route::get('testchain', 'ChainController@test');
+    Route::get('liststreams', 'ChainController@liststreams');
+    Route::get('createstream/{stream_name}', 'ChainController@createstream');
+    Route::get('createfromaddress/{stream_name}', 'ChainController@createfromaddress');
+    Route::get('publish', 'ChainController@publish');
 });
