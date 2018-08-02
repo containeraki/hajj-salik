@@ -34,4 +34,11 @@ class User extends Authenticatable
 
         return $this->api_token;
     }
+
+    /**
+     * Define a one-to-many relationship with App\Comment
+     */
+    public function shipment(){
+        return $this->hasMany('App\Shipment');
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Symfony\Component\Routing\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,14 @@ use Illuminate\Http\Request;
 
 Use App\Article;
 
+Route::post('register', 'Auth\RegisterController@register');
+Route::post('login', 'Auth\LoginController@login');
+
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('user',function (Request $request) {
+
+    /*Route::get('user',function (Request $request) {
         return $request->user();
-    });
+    });*/
     Route::post('user', 'UserController@show');
     Route::post('logout', 'Auth\LoginController@logout');
     Route::post('logout', 'Auth\LoginController@logout');
@@ -32,7 +37,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('articles', 'ArticleController@store');
     Route::put('articles/{article}', 'ArticleController@update');
     Route::delete('articles/{article}', 'ArticleController@delete');
-});
 
-Route::post('register', 'Auth\RegisterController@register');
-Route::post('login', 'Auth\LoginController@login');
+    Route::get('shipments', 'ShipmentController@index');
+    Route::get('tracks', 'TrackController@index');
+});

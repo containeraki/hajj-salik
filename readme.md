@@ -1,5 +1,5 @@
 # multichain-salik-blockchain
-Revolutionary System to deliver Hajj Logistics Conveniently
+Revolutionary System to deliver Hajj Logistics Conveniently using RDBS & Blockchain for extra level of security.
 
 
 Running Project:
@@ -7,7 +7,7 @@ Running Project:
 2. composer global require "laravel/lumen-installer"
 3. Clone the Project
 4. composer update
-5. php -S localhost:8000 -t public
+5. php -S localhost:8000 -t public or run through MAMP in Mac(Need Mysql database & Blockchain in Cloud)
 
 
 
