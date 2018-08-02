@@ -45,4 +45,6 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('createstream/{stream_name}', 'ChainController@createstream');
     Route::get('createfromaddress/{stream_name}', 'ChainController@createfromaddress');
     Route::get('publish', 'ChainController@publish');
+    Route::get('liststreamitems', 'ChainController@liststreamitems');
+    Route::get('liststreamkeyitems', 'ChainController@liststreamkeyitems');
 });

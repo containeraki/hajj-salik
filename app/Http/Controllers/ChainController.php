@@ -60,13 +60,40 @@ class ChainController extends Controller
     public function publish(){
         $address = '1aobUgPuYuVYpGFTbQwD2ZenkwCNfofQu2DLFD';
         $stream_name = "stream1";
-        $key='121';
+        $key='1';
 
-        $json = '{ "foo": "bar", "number": 42 }';
-        $myJSON = json_encode($json);
+        //$json = '{ "foo": "world", "number": 43 }';
 
-        return $address = $this->client->setDebug(true)->publishfrom($address,$stream_name,$key,$json);
+        $stdclass = new stdClass();
+        $stdclass->name = "Akshat Sharma";
+        $stdclass->email = "akshat+u1@gmail.com";
+        $stdclass->password = "mnasbdabsd8768768787";
+        $myJSON = json_encode($stdclass);
 
+        return $address = $this->client->setDebug(true)->publishfrom($address,$stream_name,$key,$myJSON);
+
+    }
+
+    public function liststreamkeyitems(){
+        $address = '1aobUgPuYuVYpGFTbQwD2ZenkwCNfofQu2DLFD';
+        $stream_name = "stream1";
+        $key='1';
+
+        $address = $this->client->setDebug(true)->liststreamkeyitems($stream_name,$key);
+
+        foreach ($address as $key=>$item){
+            $address[$key]['data'] = $this->client->hex2String($item['data']);
+        }
+
+        return $address;
+
+    }
+
+    public function liststreamitems()
+    {
+        $stream_name = "stream1";
+        //$client = new MultichainClient(env('chain_url'), env('chain_user'), env('chain_password'), 3);
+        return $address = $this->client->setDebug(true)->liststreamitems($stream_name);
     }
 
 

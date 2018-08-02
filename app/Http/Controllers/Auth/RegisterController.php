@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\ChainController;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -64,11 +65,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        /*
+        if($user->id){
+
+            $userData = new \stdClass();
+            $userData->name = $data['name'];
+            $userData->email = $data['email'];
+            $userData = json_encode($userData);
+
+            ChainController::publish(env("chain_user_stream"),$userData->email,$userData);
+        }
+        */
     }
 
     protected function registered(Request $request, $user)
