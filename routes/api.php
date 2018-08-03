@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('articles/{article}', 'ArticleController@delete');
 
     Route::get('shipments', 'ShipmentController@index');
+    Route::get('allshipments', 'ShipmentController@all');
     Route::get('tracks', 'TrackController@index');
 
     Route::get('testchain', 'ChainController@test');

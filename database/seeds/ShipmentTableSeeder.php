@@ -21,6 +21,9 @@ class ShipmentTableSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             Shipment::create([
                 'title' => $faker->sentence,
+                'shipment_to' => $faker->address,
+                'shipment_from' => $faker->address,
+                'partner' => $faker->text,
                 'type' => 'Completed',
                 'user_id' => mt_rand(1, 10)
             ]);

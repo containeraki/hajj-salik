@@ -15,4 +15,10 @@ class ShipmentController extends Controller
 
         return (new Shipment())->where('user_id', $current_user)->get();
     }
+
+    public function all()
+    {
+
+        return Shipment::all();
+    }
 }

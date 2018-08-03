@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Track extends Model
 {
     //
-    protected $fillable = ['location', 'information', 'shipment_id' ];
+    protected $fillable = ['location', 'information', 'shipment_id','status' ];
 
     /**
      * The attributes that should be hidden for arrays.

@@ -22,7 +22,8 @@ class TrackTableSeeder extends Seeder
             Track::create([
                 'location' => $faker->sentence,
                 'information' => 'Shipment is delivered',
-                'shipment_id' => mt_rand(1, 10)
+                'shipment_id' => mt_rand(1, 10),
+                'status' => 'Completed'
             ]);
         }
     }

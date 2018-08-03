@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shipment extends Model
 {
     //
-    protected $fillable = ['title', 'type', 'created_date', 'user_id','status' ];
+    protected $fillable = ['title', 'type', 'created_date', 'user_id','status','shipment_to','shipment_from','partner' ];
 
     /**
      * The attributes that should be hidden for arrays.
